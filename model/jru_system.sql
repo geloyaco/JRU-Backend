@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 13, 2025 at 02:02 PM
+-- Generation Time: Apr 14, 2025 at 10:39 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -43,7 +43,8 @@ CREATE TABLE `assignments` (
 --
 
 INSERT INTO `assignments` (`assignment_id`, `course_id`, `title`, `description`, `due_date`, `file_path`, `user_id`, `created_at`) VALUES
-(36, 82, 'Week 7 Activity 1', 'Create your own generic call script that covers all essential elements of handling a call. This will help you understand how to structure a call, implement persuasion techniques, handle calls efficiently, and use proper call handling etiquette.\r\n\r\nThe script should be designed to work for a wide variety of VA/Tech Support scenarios (e.g., software issues, product inquiries, technical problems) and should:\r\nBe professional and clear in tone.\r\nInclude all the key areas mentioned above.\r\nDemonstrate how they will handle different call stages from start to finish.', '2025-04-15 00:00:00', 'https://docs.google.com/forms/d/e/1FAIpQLScEf5T-amlYHmqPTnuwegK-WR9xNN--VxVXQQNsuFBwA3614w/alreadyresponded?hr_submission=ChkIn6OTsdQPEhAIlZH7kd4VEgcIioXGwYIVEAE', 41, '2025-04-13 08:44:35');
+(39, 84, 'ASSIGNMENT', '1', '2025-04-20 00:00:00', 'https://docs.google.com/forms/d/1sbvSOq3gj4B1qUMuyGnQXW-OIk-xjGgKs5wNs9M3ys0/edit', 48, '2025-04-14 03:47:24'),
+(40, 84, 'ASSIGNMNET', '2', '2025-12-20 00:00:00', '/uploads/lesson 1.ppt', 48, '2025-04-14 03:47:59');
 
 -- --------------------------------------------------------
 
@@ -67,7 +68,7 @@ CREATE TABLE `assignment_submissions` (
 --
 
 INSERT INTO `assignment_submissions` (`submission_id`, `assignment_id`, `student_id`, `file_path`, `submitted_at`, `grade`, `feedback`, `submission_text`) VALUES
-(28, 36, 43, 'uploads\\d7b7b02f-bfa3-4386-a573-790f02eacb09_(TEXAS) Week 5-Activity 2 - Sheet1.csv', '2025-04-13 11:02:18', 10.00, '', 'Done');
+(30, 39, 50, 'https://docs.google.com/forms/d/e/1FAIpQLSdEA6wV1OerOpZJ1QvBLykDfiYlYMP0RbvhDJZaScpOqCZ-Vg/viewform?usp=dialog', '2025-04-14 03:48:40', NULL, NULL, 'done');
 
 -- --------------------------------------------------------
 
@@ -93,7 +94,9 @@ CREATE TABLE `calendar_events` (
 --
 
 INSERT INTO `calendar_events` (`event_id`, `title`, `date`, `time`, `description`, `type`, `user_id`, `created_at`, `updated_at`, `course_id`) VALUES
-(2, 'Orientation', '2025-04-15', '01:57:00', 'Orientation', 'meeting', 41, '2025-04-13 10:55:38', '2025-04-13 10:55:38', 82);
+(4, 'Prelim Exam', '2025-04-15', '10:00:00', 'Exam', 'exam', 48, '2025-04-14 03:51:15', '2025-04-14 03:51:15', 84),
+(5, 'Prelim Exam', '2025-04-15', '13:00:00', '', 'exam', 48, '2025-04-14 03:51:40', '2025-04-14 03:51:40', 86),
+(6, 'MIDTERM', '2025-04-21', '10:08:00', 'EXAM', 'exam', 48, '2025-04-14 04:04:14', '2025-04-14 04:04:14', 86);
 
 -- --------------------------------------------------------
 
@@ -115,17 +118,8 @@ CREATE TABLE `comments` (
 --
 
 INSERT INTO `comments` (`comment_id`, `user_id`, `entity_type`, `entity_id`, `content`, `created_at`) VALUES
-(1, 43, 'quiz', 15, 'HI', '2025-04-11 19:48:51'),
-(2, 43, 'assignment', 34, 'as', '2025-04-13 17:19:11'),
-(3, 43, 'assignment', 34, 'add', '2025-04-13 17:21:16'),
-(5, 43, 'exam', 9, 'dada', '2025-04-13 17:33:32'),
-(6, 41, 'exam', 9, 'lalalala\n', '2025-04-13 18:01:21'),
-(8, 43, 'exam', 11, 'done\n', '2025-04-13 22:03:02'),
-(9, 41, 'quiz', 16, 'Submit', '2025-04-13 22:36:02'),
-(10, 43, 'quiz', 16, 'Done', '2025-04-13 22:41:23'),
-(11, 43, 'assignment', 36, 'Done', '2025-04-14 00:02:23'),
-(12, 43, 'quiz', 17, 'Done\n', '2025-04-14 00:37:10'),
-(13, 43, 'exam', 10, 'done', '2025-04-14 00:37:29');
+(19, 50, 'quiz', 20, 'done', '2025-04-14 16:45:00'),
+(20, 48, 'quiz', 20, 'okay', '2025-04-14 16:45:53');
 
 -- --------------------------------------------------------
 
@@ -146,12 +140,16 @@ CREATE TABLE `courses` (
 --
 
 INSERT INTO `courses` (`course_id`, `course_name`, `section`, `user_id`, `class_schedule`) VALUES
-(74, 'ELEC014', 'BSIT-3B', 41, 'THU'),
-(75, 'ELEC014', 'BSCS-3A', 41, 'MON'),
-(76, 'GEC010', 'BSPH-2A', 41, 'TUE'),
-(77, 'GEC010', 'BSN-1A', 41, 'MON'),
-(79, 'GEC010', 'BSN-1B', 41, 'TUE'),
-(82, 'ITELECT4', 'BSIT-3A', 41, 'MON');
+(74, 'ELEC014', 'BSIT-3B', NULL, 'THU'),
+(75, 'ELEC014', 'BSCS-3A', NULL, 'MON'),
+(76, 'GEC010', 'BSPH-2A', NULL, 'TUE'),
+(77, 'GEC010', 'BSN-1A', NULL, 'MON'),
+(79, 'GEC010', 'BSN-1B', NULL, 'TUE'),
+(82, ' ITFELECT1', 'BSIT-3A', NULL, 'MON'),
+(83, 'ITELECT3', 'BSIT-3A', NULL, 'MON'),
+(84, 'ITELECT4', 'BSIT-3A', 48, 'MONDAY'),
+(86, 'ITELECT1', 'BSIT-3A', 48, 'MON'),
+(87, 'ITELECT3', 'BSIT-3A', 49, 'MONDAY');
 
 -- --------------------------------------------------------
 
@@ -175,7 +173,10 @@ CREATE TABLE `course_content` (
 
 INSERT INTO `course_content` (`content_id`, `course_id`, `title`, `content`, `created_at`, `file_path`, `user_id`) VALUES
 (23, 82, 'Course Material', 'Week 1 Course Material', '2025-04-13 08:32:02', 'uploads\\(TEXAS) Week 5-Activity 2 - Sheet1.csv', 41),
-(25, 82, 'Course Material', 'Week 2 Course Material', '2025-04-13 08:39:01', 'uploads\\(TEXAS) Week 5-Activity 2 - Sheet1.csv', 41);
+(25, 82, 'Course Material', 'Week 2 Course Material', '2025-04-13 08:39:01', 'uploads\\(TEXAS) Week 5-Activity 2 - Sheet1.csv', 41),
+(28, 83, 'Course Material', 'Lesson 1 - Immersive Technology', '2025-04-14 00:24:25', '/uploads/lesson 1.ppt', 45),
+(29, 84, 'Course Material', 'Week 1 Course Material', '2025-04-14 01:41:15', '/uploads/lesson 1 (1).ppt', 48),
+(30, 84, 'MAterial1', 'Material', '2025-04-14 03:42:32', '/uploads/lesson 1.ppt', 48);
 
 -- --------------------------------------------------------
 
@@ -219,7 +220,9 @@ CREATE TABLE `exams` (
 
 INSERT INTO `exams` (`exam_id`, `course_id`, `title`, `description`, `exam_date`, `created_at`, `duration_minutes`, `file_path`, `user_id`) VALUES
 (10, 82, 'ITFELECT1 - PRELIM EXAM', 'Prelim Exam', '2025-04-15 00:00:00', '2025-04-13 08:46:22', 60, 'https://docs.google.com/forms/d/e/1FAIpQLScEf5T-amlYHmqPTnuwegK-WR9xNN--VxVXQQNsuFBwA3614w/alreadyresponded?hr_submission=ChkIn6OTsdQPEhAIlZH7kd4VEgcIioXGwYIVEAE', 41),
-(11, 82, 'ITFELECT1 - MIDTERM EXAM', 'Midterm Exam', '2025-05-15 00:00:00', '2025-04-13 08:48:29', 60, '/uploads/(TEXAS) Week 5-Activity 2 - Sheet1.csv', 41);
+(11, 82, 'ITFELECT1 - MIDTERM EXAM', 'Midterm Exam', '2025-05-15 00:00:00', '2025-04-13 08:48:29', 60, '/uploads/(TEXAS) Week 5-Activity 2 - Sheet1.csv', 41),
+(12, 83, 'Prelim Exam', 'Read and follow the instructions carefully and promptly.\r\n', '2025-05-15 00:00:00', '2025-04-14 00:38:26', 60, 'https://docs.google.com/forms/d/1vrkgZCaIy0P49skgHjzi4AYEAbNUG94m-yXDKzULqPQ/edit', 45),
+(14, 84, 'Exam', '1', '2025-08-20 00:00:00', '2025-04-14 03:49:14', 60, 'https://docs.google.com/forms/d/1vrkgZCaIy0P49skgHjzi4AYEAbNUG94m-yXDKzULqPQ/edit', 48);
 
 -- --------------------------------------------------------
 
@@ -237,14 +240,6 @@ CREATE TABLE `exam_submissions` (
   `grade` decimal(5,2) DEFAULT NULL,
   `feedback` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `exam_submissions`
---
-
-INSERT INTO `exam_submissions` (`submission_id`, `exam_id`, `student_id`, `file_path`, `submission_text`, `submitted_at`, `grade`, `feedback`) VALUES
-(5, 11, 43, 'uploads\\0773b9dc-eca2-4916-bdd1-2a997c7c1990_(TEXAS) Week 5-Activity 2 - Sheet1.csv', 'answer', '2025-04-13 09:02:55', 10.00, ''),
-(7, 10, 43, 'https://docs.google.com/forms/d/e/1FAIpQLScEf5T-amlYHmqPTnuwegK-WR9xNN--VxVXQQNsuFBwA3614w/alreadyresponded?hr_submission=ChkIn6OTsdQPEhAIlZH7kd4VEgcIioXGwYIVEAE', 'Done', '2025-04-13 11:01:52', 10.00, '');
 
 -- --------------------------------------------------------
 
@@ -270,8 +265,8 @@ CREATE TABLE `grades` (
 --
 
 INSERT INTO `grades` (`grade_id`, `student_id`, `course_id`, `recorded_at`, `school_year`, `semester`, `prelim_grade`, `midterm_grade`, `finals_grade`, `overall_grade`) VALUES
-(5, 43, 82, '2025-04-13 11:42:26', '2024-2025', '1st', 75.00, 75.00, 75.00, 75.00),
-(6, 43, 76, '2025-04-13 12:01:37', '2024-2025', '1st', 80.00, 80.00, 80.00, 80.00);
+(7, 50, 84, '2025-04-14 03:50:09', '2024-2025', '2nd', 80.00, 80.00, 80.00, 80.00),
+(8, 50, 87, '2025-04-14 03:53:41', '2024-2025', '2nd', 75.00, 75.00, 75.00, 75.00);
 
 -- --------------------------------------------------------
 
@@ -297,7 +292,10 @@ CREATE TABLE `quizzes` (
 
 INSERT INTO `quizzes` (`quiz_id`, `course_id`, `title`, `description`, `created_at`, `quiz_date`, `duration_minutes`, `file_path`, `user_id`) VALUES
 (16, 82, 'Quiz 1', 'Create a spreadsheet and list down potential clients based on the assigned state.\r\n\r\n\r\nInformation needed:\r\nName:\r\nCompany/Business Name:\r\nBusiness Address:\r\nPhone:\r\nEmail:\r\nHas Website: (Yes/No)\r\nWebsite URL:\r\nSocMed URL:\r\nRemarks: (Notes about the website [needs revamp / needs redesign]', '2025-04-13 08:41:54', '2025-04-15', 20, '/uploads/(TEXAS) Week 5-Activity 2 - Sheet1.csv', 41),
-(17, 82, 'Quiz 2', 'Week 2 Quiz', '2025-04-13 09:59:46', '2025-04-15', 10, 'https://docs.google.com/forms/d/e/1FAIpQLScEf5T-amlYHmqPTnuwegK-WR9xNN--VxVXQQNsuFBwA3614w/alreadyresponded?hr_submission=ChkIn6OTsdQPEhAIlZH7kd4VEgcIioXGwYIVEAE', 41);
+(17, 82, 'Quiz 2', 'Week 2 Quiz', '2025-04-13 09:59:46', '2025-04-15', 10, 'https://docs.google.com/forms/d/e/1FAIpQLScEf5T-amlYHmqPTnuwegK-WR9xNN--VxVXQQNsuFBwA3614w/alreadyresponded?hr_submission=ChkIn6OTsdQPEhAIlZH7kd4VEgcIioXGwYIVEAE', 41),
+(18, 83, 'TLA1', '1. Think about any immersive technology you’ve encountered (e.g., VR games, AR filters, MR tools, or virtual environments).\r\n2. Identify the following:\r\nType: Is it VR, AR, MR, or a Multi-User Virtual Environment (MUVE)?\r\nPurpose: What is it used for, and how does it enhance the user experience?\r\n3. Be ready to share your example with the class briefly.\r\n\r\n\r\nPurpose: This activity will help connect today’s topic to real-world examples and prepare you for our discussion on immersive technology.', '2025-04-14 00:31:01', '2025-05-20', 15, 'https://docs.google.com/forms/d/1sbvSOq3gj4B1qUMuyGnQXW-OIk-xjGgKs5wNs9M3ys0/edit', 45),
+(19, 84, 'adq1', 'qsdad', '2025-04-14 03:10:20', '2025-12-04', 50, '/uploads/lesson 1 (1).ppt', 48),
+(20, 84, 'Quiz 1', 'Week 1 Quiz', '2025-04-14 03:43:42', '2025-04-15', 50, 'https://docs.google.com/forms/d/1vrkgZCaIy0P49skgHjzi4AYEAbNUG94m-yXDKzULqPQ/edit', 48);
 
 -- --------------------------------------------------------
 
@@ -321,8 +319,8 @@ CREATE TABLE `quiz_submissions` (
 --
 
 INSERT INTO `quiz_submissions` (`submission_id`, `quiz_id`, `student_id`, `submitted_at`, `grade`, `feedback`, `file_path`, `submission_text`) VALUES
-(5, 16, 43, '2025-04-13 09:41:01', 10.00, NULL, 'uploads\\1427ac40-45c6-4d7e-95c2-718ad4f7d855_(TEXAS) Week 5-Activity 2 - Sheet1.csv', 'Answer'),
-(6, 17, 43, '2025-04-13 11:01:03', 10.00, NULL, 'https://docs.google.com/forms/d/e/1FAIpQLScEf5T-amlYHmqPTnuwegK-WR9xNN--VxVXQQNsuFBwA3614w/alreadyresponded?hr_submission=ChkIn6OTsdQPEhAIlZH7kd4VEgcIioXGwYIVEAE', 'Done');
+(9, 20, 50, '2025-04-14 03:44:53', 10.00, NULL, 'https://docs.google.com/forms/d/e/1FAIpQLSdEA6wV1OerOpZJ1QvBLykDfiYlYMP0RbvhDJZaScpOqCZ-Vg/viewform?usp=dialog', 'Done'),
+(10, 19, 50, '2025-04-14 03:46:24', 10.00, NULL, 'uploads\\8869e90a-ffc5-4e24-b80b-4f2a0d9a46ad_0773b9dc-eca2-4916-bdd1-2a997c7c1990_(TEXAS) Week 5-Activity 2 - Sheet1 (1).csv', 'done');
 
 -- --------------------------------------------------------
 
@@ -347,7 +345,7 @@ CREATE TABLE `students` (
 INSERT INTO `students` (`student_id`, `user_id`, `student_number`, `first_name`, `last_name`, `degree`, `enrollment_date`) VALUES
 (7, 34, 'SN000034', 'Asi', '', '', '2025-04-01'),
 (8, 35, 'SN000035', 'Kobe', '', '', '2025-04-01'),
-(44, 43, 'SN000043', 'Geric', 'Gultiano', 'Information Technology', '2025-04-11');
+(47, 50, 'SN000050', 'Geric', 'Gultiano', 'information technolohy', '2025-04-14');
 
 -- --------------------------------------------------------
 
@@ -367,8 +365,9 @@ CREATE TABLE `student_courses` (
 --
 
 INSERT INTO `student_courses` (`enrollment_id`, `student_id`, `course_id`, `enrolled_at`) VALUES
-(29, 43, 76, '2025-04-13 07:04:13'),
-(30, 43, 82, '2025-04-13 08:28:41');
+(36, 50, 84, '2025-04-14 03:40:37'),
+(37, 50, 86, '2025-04-14 03:41:42'),
+(38, 50, 87, '2025-04-14 03:53:03');
 
 -- --------------------------------------------------------
 
@@ -394,8 +393,9 @@ INSERT INTO `users` (`user_id`, `name`, `email`, `password`, `role`, `created_at
 (34, 'Asi', 'ivaldez_220000000293@uic.edu.ph', 'ASI', 'student', '2025-04-02 05:19:18'),
 (35, 'Kobe', 'kcorpuz_220000002183@uic.edu.ph', 'kobe', 'student', '2025-04-02 05:20:46'),
 (40, 'Admin', 'orentgultiano11@gmail.com', '$2b$12$ldWtvfFWUHI46kxGYCJBq.e/AY2rCaOJ2RRRdHW95zwl9aiFcVEKq', 'admin', '2025-04-03 11:46:34'),
-(41, 'Sir Geric', 'wlage35@gmail.com', '$2b$12$SGCrupcTfBGfLBjzYP1e5ubVpZNlPibPR0UIcCc4DKNVLAWWfVcsG', 'faculty', '2025-04-04 08:25:13'),
-(43, 'Geric Gultiano', 'ggultiano_220000000886@uic.edu.ph', '$2b$12$uRsjgAU6XLaxbUfg21pL8.r4P27tAmsqaVvHDUzN/YLeaTFSIPRlu', 'student', '2025-04-04 08:31:48');
+(48, 'Sir Geric', 'wlage35@gmail.com', '$2b$12$K5IdMZ2stPPWs2Bo3kuE4udhX9POyh1PrNqdLdpJX1kUfpe8fmDQC', 'faculty', '2025-04-14 01:34:57'),
+(49, 'John Doe', 'jdoe@gmail.com', '$2b$12$DttrUa/jo7MK/bLGVIHYOea/joa7f80pwTFnmS87zEoBDrycJecMG', 'faculty', '2025-04-14 01:59:56'),
+(50, 'Geric Gultiano', 'ggultiano_220000000886@uic.edu.ph', '$2b$12$uoqMbxeJyPfwQs5EYJH4v.LmE1Aw/dFoBiKOm2VLEdQ50PYpHeevq', 'student', '2025-04-14 03:38:41');
 
 --
 -- Indexes for dumped tables
@@ -526,37 +526,37 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `assignments`
 --
 ALTER TABLE `assignments`
-  MODIFY `assignment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `assignment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `assignment_submissions`
 --
 ALTER TABLE `assignment_submissions`
-  MODIFY `submission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `submission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `calendar_events`
 --
 ALTER TABLE `calendar_events`
-  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `event_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=83;
+  MODIFY `course_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT for table `course_content`
 --
 ALTER TABLE `course_content`
-  MODIFY `content_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `content_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `course_materials`
@@ -568,49 +568,49 @@ ALTER TABLE `course_materials`
 -- AUTO_INCREMENT for table `exams`
 --
 ALTER TABLE `exams`
-  MODIFY `exam_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `exam_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `exam_submissions`
 --
 ALTER TABLE `exam_submissions`
-  MODIFY `submission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `submission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `grades`
 --
 ALTER TABLE `grades`
-  MODIFY `grade_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `grade_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `quizzes`
 --
 ALTER TABLE `quizzes`
-  MODIFY `quiz_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `quiz_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `quiz_submissions`
 --
 ALTER TABLE `quiz_submissions`
-  MODIFY `submission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `submission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `student_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `student_courses`
 --
 ALTER TABLE `student_courses`
-  MODIFY `enrollment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `enrollment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
 
 --
 -- Constraints for dumped tables
